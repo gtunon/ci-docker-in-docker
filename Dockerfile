@@ -67,11 +67,18 @@ RUN usermod -aG docker jenkins
 
 #RUN chown jenkins:docker /var/run/docker.sock
 
-USER jenkins
-
 # set envs
 ENV WORKSPACE /home/jenkins
 
-# launch container
-ENTRYPOINT ["/bin/bash"]
+#COPY scripts ${WORKSPACE}/scripts 
+#RUN chown -R jenkins:jenkins ${WORKSPACE}/scripts && \
+#    chmod +x ${WORKSPACE}/scripts/*
+ 
+USER jenkins 
 
+WORKDIR ${WORKSPACE} 
+
+# launch container
+#ENTRYPOINT [ "/bin/bash" , "-c" , "./scripts/sh_entry_point.sh ${*}" ]
+ENTRYPOINT ["/bin/bash"]
+#CMD [ "help" , "none" ]
