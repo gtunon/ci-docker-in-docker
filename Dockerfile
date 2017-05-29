@@ -18,7 +18,7 @@ RUN apt-get update && \
     add-apt-repository ppa:webupd8team/java 
     
 RUN apt-get update && \ 
-    apt-get upgrade && \
+    apt-get upgrade -y && \
     apt-get install -y curl wget apt-transport-https
 
 ## java 
@@ -57,7 +57,7 @@ RUN echo "export DOCKER_HOST='unix:///var/run/docker.sock'" >> /root/.bashrc \
 
 
 ## git 
-RUN apt-get install git
+RUN apt-get -y install git
 
 #non root user
 RUN useradd -ms /bin/bash jenkins &&\
