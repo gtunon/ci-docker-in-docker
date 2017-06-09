@@ -55,7 +55,24 @@ RUN echo "export DOCKER_HOST='unix:///var/run/docker.sock'" >> /root/.bashrc \
 
 #VOLUME /var/run/docker.sock
 
+## aws cli
+# AWS CLI needs the PYTHONIOENCODING environment varialbe to handle UTF-8 correctly:
+ENV PYTHONIOENCODING=UTF-8
 
+# man and less are needed to view 'aws <command> help'
+# vim is useful to write shell scripts
+# python* is needed to install aws cli using pip install
+
+RUN apt-get install -y \
+    less \
+    man \
+    python \
+    python-pip \
+    python-virtualenv \
+    vim
+    
+RUN  pip install awscli
+    
 ## git 
 RUN apt-get -y install git
 
