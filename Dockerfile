@@ -74,8 +74,8 @@ RUN apt-get install -y \
     
 #RUN  pip install awscli
 RUN  curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \\
-     sudo  unzip awscli-bundle.zip && \\  
-     sudo   ./awscli-bundle/install -i /var/lib/aws -b /usr/bin/aws
+     unzip awscli-bundle.zip && \\  
+     ./awscli-bundle/install -i /var/lib/aws -b /usr/bin/aws
     
 ## git 
 RUN apt-get -y install git
