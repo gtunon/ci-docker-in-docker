@@ -73,8 +73,8 @@ RUN apt-get install -y \
     vim
     
 #RUN  pip install awscli
-RUN  curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \\
-     unzip awscli-bundle.zip && \\  
+RUN  curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" && \
+     unzip awscli-bundle.zip && \
      ./awscli-bundle/install -i /var/lib/aws -b /usr/bin/aws
     
 ## git 
